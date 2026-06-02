@@ -25,40 +25,53 @@ const StarField = () => {
 
   return (
     <div className="stars-bg">
-      {/* Nebula blobs */}
+      {/* Nature green nebula blobs */}
       <div
         className="nebula-blob animate-nebula"
         style={{
-          width: 600,
-          height: 600,
-          background: 'radial-gradient(circle, #b400ff, transparent)',
-          top: '-10%',
-          left: '-10%',
-          animationDuration: '20s',
+          width: 700,
+          height: 700,
+          background: 'radial-gradient(circle, #00c853, transparent)',
+          top: '-15%',
+          left: '-15%',
+          animationDuration: '22s',
+          opacity: 0.13,
         }}
       />
       <div
         className="nebula-blob"
         style={{
-          width: 500,
-          height: 500,
-          background: 'radial-gradient(circle, #00e5ff, transparent)',
-          top: '30%',
-          right: '-8%',
-          opacity: 0.08,
-          animation: 'nebula-drift 25s ease-in-out infinite reverse',
+          width: 550,
+          height: 550,
+          background: 'radial-gradient(circle, #00ff88, transparent)',
+          top: '25%',
+          right: '-10%',
+          opacity: 0.09,
+          animation: 'nebula-drift 28s ease-in-out infinite reverse',
         }}
       />
       <div
         className="nebula-blob"
         style={{
-          width: 400,
-          height: 400,
-          background: 'radial-gradient(circle, #ff0080, transparent)',
-          bottom: '10%',
-          left: '20%',
+          width: 450,
+          height: 450,
+          background: 'radial-gradient(circle, #a8ff3e, transparent)',
+          bottom: '5%',
+          left: '15%',
           opacity: 0.07,
-          animation: 'nebula-drift 18s ease-in-out infinite 5s',
+          animation: 'nebula-drift 20s ease-in-out infinite 6s',
+        }}
+      />
+      <div
+        className="nebula-blob"
+        style={{
+          width: 350,
+          height: 350,
+          background: 'radial-gradient(circle, #00ffcc, transparent)',
+          top: '60%',
+          left: '50%',
+          opacity: 0.06,
+          animation: 'nebula-drift 16s ease-in-out infinite 3s',
         }}
       />
 
@@ -70,7 +83,7 @@ const StarField = () => {
             cx={`${star.x}%`}
             cy={`${star.y}%`}
             r={star.size}
-            fill="white"
+            fill={star.id % 5 === 0 ? '#a8ffb0' : star.id % 7 === 0 ? '#b0ffe8' : 'white'}
             style={{
               opacity: star.opacity,
               animation: `twinkle ${star.duration}s ease-in-out infinite ${star.delay}s`,

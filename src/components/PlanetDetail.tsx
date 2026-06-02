@@ -31,20 +31,22 @@ const PlanetDetail = ({ planet, onBack }: PlanetDetailProps) => {
           <div className="flex flex-col md:flex-row gap-8 items-start">
             {/* Planet visual */}
             <div className="flex-shrink-0 flex justify-center">
-              <div className="relative w-36 h-36">
+              <div className="relative w-44 h-44 animate-float">
+                <img
+                  src={planet.image}
+                  alt={planet.name}
+                  className="w-44 h-44 rounded-full object-cover"
+                  style={{
+                    boxShadow: `0 0 50px ${planet.glowColor}, 0 0 100px ${planet.glowColor}55`,
+                  }}
+                />
                 <div
-                  className="w-36 h-36 rounded-full animate-float"
+                  className="absolute inset-0 rounded-full"
                   style={{
-                    background: `radial-gradient(circle at 35% 35%, ${planet.color}ee, ${planet.color}44, #050714)`,
-                    boxShadow: `0 0 40px ${planet.glowColor}, 0 0 80px ${planet.glowColor}44`,
+                    background: 'radial-gradient(circle at 65% 70%, rgba(0,0,0,0.25), transparent)',
+                    border: `2px solid ${planet.color}55`,
                   }}
                 />
-                <div className="absolute inset-0 rounded-full"
-                  style={{
-                    background: 'radial-gradient(circle at 65% 70%, rgba(0,0,0,0.5), transparent)',
-                  }}
-                />
-                <div className="absolute top-4 left-6 text-5xl">{planet.emoji}</div>
               </div>
             </div>
 

@@ -20,7 +20,7 @@ const educationItems = [
     title: 'Что такое экзопланета?',
     text: 'Экзопланета — любая планета за пределами нашей Солнечной системы. Первую подтверждённую экзопланету обнаружили в 1992 году. Сегодня известно более 5 600 экзопланет.',
     tag: 'Основы',
-    color: '#00e5ff',
+    color: '#00ff88',
   },
   {
     emoji: '🌡️',
@@ -102,7 +102,7 @@ export default function Index() {
           style={{
             background: 'rgba(5,7,20,0.85)',
             backdropFilter: 'blur(16px)',
-            borderBottom: '1px solid rgba(0,229,255,0.1)',
+            borderBottom: '1px solid rgba(0,255,136,0.12)',
           }}
         >
           <span className="font-orbitron text-sm neon-text-cyan tracking-widest">✦ EXOPLANETS</span>
@@ -111,7 +111,7 @@ export default function Index() {
               <button
                 key={n.id}
                 onClick={() => handleNav(n.id)}
-                className="px-4 py-2 text-xs font-orbitron rounded-lg transition-all text-white/40 hover:text-cyan-400"
+                className="px-4 py-2 text-xs font-orbitron rounded-lg transition-all text-white/40 hover:text-green-400"
               >
                 {n.label}
               </button>
@@ -135,7 +135,7 @@ export default function Index() {
         style={{
           background: scrolled ? 'rgba(5,7,20,0.92)' : 'transparent',
           backdropFilter: scrolled ? 'blur(16px)' : 'none',
-          borderBottom: scrolled ? '1px solid rgba(0,229,255,0.1)' : '1px solid transparent',
+          borderBottom: scrolled ? '1px solid rgba(0,255,136,0.12)' : '1px solid transparent',
         }}
       >
         <button
@@ -151,9 +151,9 @@ export default function Index() {
               onClick={() => handleNav(n.id)}
               className="px-4 py-2 text-xs font-orbitron rounded-lg transition-all"
               style={{
-                color: section === n.id ? '#00e5ff' : 'rgba(255,255,255,0.5)',
-                background: section === n.id ? 'rgba(0,229,255,0.08)' : 'transparent',
-                border: section === n.id ? '1px solid rgba(0,229,255,0.25)' : '1px solid transparent',
+                color: section === n.id ? '#00ff88' : 'rgba(255,255,255,0.5)',
+                background: section === n.id ? 'rgba(0,255,136,0.08)' : 'transparent',
+                border: section === n.id ? '1px solid rgba(0,255,136,0.25)' : '1px solid transparent',
               }}
             >
               {n.label}
@@ -241,10 +241,10 @@ export default function Index() {
                   onClick={() => handleNav('catalog')}
                   className="font-orbitron text-sm px-8 py-4 rounded-xl transition-all hover:scale-105"
                   style={{
-                    background: 'linear-gradient(135deg, rgba(0,229,255,0.15), rgba(180,0,255,0.15))',
-                    border: '1px solid rgba(0,229,255,0.4)',
-                    color: '#00e5ff',
-                    boxShadow: '0 0 30px rgba(0,229,255,0.15)',
+                    background: 'linear-gradient(135deg, rgba(0,255,136,0.12), rgba(168,255,62,0.08))',
+                    border: '1px solid rgba(0,255,136,0.45)',
+                    color: '#00ff88',
+                    boxShadow: '0 0 30px rgba(0,255,136,0.18)',
                   }}
                 >
                   Открыть каталог
@@ -284,7 +284,7 @@ export default function Index() {
                 </div>
                 <button
                   onClick={() => handleNav('catalog')}
-                  className="font-orbitron text-xs text-white/40 hover:text-cyan-400 transition-colors flex items-center gap-2"
+                  className="font-orbitron text-xs text-white/40 hover:text-green-400 transition-colors flex items-center gap-2"
                 >
                   Все планеты <Icon name="ArrowRight" size={14} />
                 </button>
@@ -304,23 +304,23 @@ export default function Index() {
                     }}
                     onClick={() => setSelectedPlanet(planet)}
                   >
-                    <div className="flex items-center justify-between mb-4">
-                      <div
-                        className="w-12 h-12 rounded-full"
-                        style={{
-                          background: `radial-gradient(circle at 35% 35%, ${planet.color}, ${planet.color}44, #050714)`,
-                          boxShadow: `0 0 20px ${planet.glowColor}`,
-                        }}
+                    <div className="relative mb-4">
+                      <img
+                        src={planet.image}
+                        alt={planet.name}
+                        className="w-full h-32 object-cover rounded-xl"
+                        style={{ boxShadow: `0 0 20px ${planet.glowColor}55` }}
                       />
                       <span
-                        className="text-xs font-orbitron px-2 py-0.5 rounded-full"
+                        className="absolute top-2 right-2 text-xs font-orbitron px-2 py-0.5 rounded-full"
                         style={{
-                          background: `${habitabilityColors[planet.habitability]}15`,
+                          background: `${habitabilityColors[planet.habitability]}22`,
                           color: habitabilityColors[planet.habitability],
-                          border: `1px solid ${habitabilityColors[planet.habitability]}40`,
+                          border: `1px solid ${habitabilityColors[planet.habitability]}55`,
+                          backdropFilter: 'blur(8px)',
                         }}
                       >
-                        {planet.emoji}
+                        {habitabilityLabels[planet.habitability]}
                       </span>
                     </div>
                     <h3 className="font-orbitron text-sm font-bold mb-1" style={{ color: planet.color }}>
@@ -341,13 +341,13 @@ export default function Index() {
           <section
             className="relative z-10 px-4 py-12 mb-8"
             style={{
-              borderTop: '1px solid rgba(0,229,255,0.06)',
-              borderBottom: '1px solid rgba(0,229,255,0.06)',
+              borderTop: '1px solid rgba(0,255,136,0.08)',
+              borderBottom: '1px solid rgba(0,255,136,0.08)',
             }}
           >
             <div className="max-w-4xl mx-auto grid grid-cols-2 md:grid-cols-4 gap-8 text-center">
               {[
-                { val: '5 600+', label: 'Экзопланет открыто', color: '#00e5ff' },
+                { val: '5 600+', label: 'Экзопланет открыто', color: '#00ff88' },
                 { val: '3', label: 'Планеты в зоне обитаемости', color: '#39ff14' },
                 { val: '4.24', label: 'Световых лет до ближайшей', color: '#b400ff' },
                 { val: '2041', label: 'Год запуска LUVOIR', color: '#ff0080' },
@@ -397,12 +397,12 @@ export default function Index() {
                     onClick={() => setActiveFilter(f)}
                     className="px-4 py-2 rounded-xl text-xs font-orbitron transition-all"
                     style={{
-                      background: activeFilter === f ? 'rgba(0,229,255,0.12)' : 'rgba(255,255,255,0.04)',
+                      background: activeFilter === f ? 'rgba(0,255,136,0.12)' : 'rgba(255,255,255,0.04)',
                       border:
                         activeFilter === f
-                          ? '1px solid rgba(0,229,255,0.4)'
+                          ? '1px solid rgba(0,255,136,0.45)'
                           : '1px solid rgba(255,255,255,0.08)',
-                      color: activeFilter === f ? '#00e5ff' : 'rgba(255,255,255,0.4)',
+                      color: activeFilter === f ? '#00ff88' : 'rgba(255,255,255,0.4)',
                     }}
                   >
                     {filterLabels[f]}
@@ -425,33 +425,30 @@ export default function Index() {
                     style={{ border: `1px solid ${planet.color}25` }}
                     onClick={() => setSelectedPlanet(planet)}
                   >
-                    <div className="flex justify-center mb-4">
+                    <div className="relative mb-4 overflow-hidden rounded-xl">
+                      <img
+                        src={planet.image}
+                        alt={planet.name}
+                        className="w-full h-36 object-cover transition-transform duration-500 group-hover:scale-105"
+                        style={{ boxShadow: `0 0 20px ${planet.glowColor}44` }}
+                      />
                       <div
-                        className="w-20 h-20 rounded-full relative animate-float"
+                        className="absolute inset-0"
                         style={{
-                          background: `radial-gradient(circle at 35% 35%, ${planet.color}ee, ${planet.color}44, #050714)`,
-                          boxShadow: `0 0 30px ${planet.glowColor}, 0 0 60px ${planet.glowColor}44`,
+                          background: `linear-gradient(to top, rgba(2,10,3,0.85) 0%, transparent 60%)`,
+                        }}
+                      />
+                      <span
+                        className="absolute top-2 right-2 text-xs font-orbitron px-2 py-0.5 rounded-full"
+                        style={{
+                          background: `${habitabilityColors[planet.habitability]}22`,
+                          color: habitabilityColors[planet.habitability],
+                          border: `1px solid ${habitabilityColors[planet.habitability]}55`,
+                          backdropFilter: 'blur(8px)',
                         }}
                       >
-                        <div
-                          className="absolute inset-0 rounded-full"
-                          style={{
-                            background: 'radial-gradient(circle at 65% 70%, rgba(0,0,0,0.4), transparent)',
-                          }}
-                        />
-                        <span className="absolute top-2 left-3 text-2xl">{planet.emoji}</span>
-                      </div>
-                    </div>
-
-                    <div
-                      className="inline-block px-2 py-0.5 rounded-full text-xs font-orbitron mb-2"
-                      style={{
-                        background: `${habitabilityColors[planet.habitability]}15`,
-                        color: habitabilityColors[planet.habitability],
-                        border: `1px solid ${habitabilityColors[planet.habitability]}35`,
-                      }}
-                    >
-                      {habitabilityLabels[planet.habitability]}
+                        {habitabilityLabels[planet.habitability]}
+                      </span>
                     </div>
 
                     <h3 className="font-orbitron font-bold text-sm mb-1" style={{ color: planet.color }}>
@@ -539,8 +536,8 @@ export default function Index() {
             <div
               className="mt-12 rounded-2xl p-8 text-center"
               style={{
-                background: 'linear-gradient(135deg, rgba(0,229,255,0.06), rgba(180,0,255,0.06))',
-                border: '1px solid rgba(0,229,255,0.15)',
+                background: 'linear-gradient(135deg, rgba(0,255,136,0.06), rgba(168,255,62,0.04))',
+                border: '1px solid rgba(0,255,136,0.18)',
               }}
             >
               <div className="text-4xl mb-4">🚀</div>
@@ -554,10 +551,10 @@ export default function Index() {
                 onClick={() => handleNav('catalog')}
                 className="font-orbitron text-sm px-8 py-4 rounded-xl transition-all hover:scale-105"
                 style={{
-                  background: 'linear-gradient(135deg, rgba(0,229,255,0.15), rgba(180,0,255,0.15))',
-                  border: '1px solid rgba(0,229,255,0.4)',
-                  color: '#00e5ff',
-                  boxShadow: '0 0 30px rgba(0,229,255,0.15)',
+                  background: 'linear-gradient(135deg, rgba(0,255,136,0.12), rgba(168,255,62,0.08))',
+                  border: '1px solid rgba(0,255,136,0.45)',
+                  color: '#00ff88',
+                  boxShadow: '0 0 30px rgba(0,255,136,0.18)',
                 }}
               >
                 Открыть каталог →
