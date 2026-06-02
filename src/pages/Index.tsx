@@ -201,14 +201,10 @@ export default function Index() {
               </p>
 
               <h1
-                className="font-orbitron font-black leading-none mb-4"
+                className="font-orbitron font-black leading-none mb-4 text-white"
                 style={{
                   fontSize: 'clamp(4rem, 12vw, 10rem)',
-                  background: 'linear-gradient(135deg, #00e5ff 0%, #b400ff 50%, #ff0080 100%)',
-                  WebkitBackgroundClip: 'text',
-                  WebkitTextFillColor: 'transparent',
-                  backgroundClip: 'text',
-                  filter: 'drop-shadow(0 0 40px rgba(0,229,255,0.3))',
+                  filter: 'drop-shadow(0 0 40px rgba(255,255,255,0.15))',
                 }}
               >
                 ЭКЗО
